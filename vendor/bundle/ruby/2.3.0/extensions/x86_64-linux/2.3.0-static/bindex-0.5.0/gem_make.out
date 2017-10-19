@@ -1,0 +1,15 @@
+current directory: /home/fujimoon/2017/Programming_tutorial/Rails_tutorial/apps/myblog/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+/home/fujimoon/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171017-7936-1udswtd.rb extconf.rb
+creating Makefile
+
+current directory: /home/fujimoon/2017/Programming_tutorial/Rails_tutorial/apps/myblog/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /home/fujimoon/2017/Programming_tutorial/Rails_tutorial/apps/myblog/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.so
+
+current directory: /home/fujimoon/2017/Programming_tutorial/Rails_tutorial/apps/myblog/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20171017-7936-xs9xrc/bindex

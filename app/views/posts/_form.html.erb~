@@ -1,0 +1,25 @@
+<!-- new, edit　共通 -->
+
+<%= form_for @post do |f| %>
+<br>
+<p>タイトル</p>
+<p>
+  <%= f.text_field :title, placeholder: 'enter title' %>
+  <% if @post.errors.messages[:title].any? %>
+  <span class ="error"><%= @post.errors.messages[:title][0] %></span>
+  <% end %>
+</p>
+<br>
+<p>記事内容</p>
+<p>
+  <%= f.text_area :body, placeholder: 'enter body text' %>
+   <% if @post.errors.messages[:body].any? %>
+  <span class ="error"><%= @post.errors.messages[:body][0] %></span>
+  <% end %>
+</p>
+<br>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+<br><br>

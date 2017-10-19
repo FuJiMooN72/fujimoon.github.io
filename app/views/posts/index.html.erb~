@@ -1,0 +1,35 @@
+
+<div id="main">
+  <%= image_tag 'main-img.jpg' %>
+</div> 
+
+<div id="article_wrap"> 
+  
+  <div id="article_list">
+    
+    <ul style="list-style:none;"> <!-- 箇条書きの点・を消す -->
+      <div>
+	<% @posts.each do |post| %>
+	<li>
+	  <br>
+	  <h2><%= link_to post.title, post_path(post) %></h2>  <!-- path(post.id)でも同じ -->
+	  <p><%= post.created_at.strftime('%Y/%m/%d') %></p>
+	  <% if user_signed_in? %>
+	  <p> <%= link_to '編集', edit_post_path(post), class: 'command' %>
+	    <%= link_to '削除',
+		post_path(post),
+		method: :delete,
+		class: 'command', 
+		data: { confirm: '記事を削除しますか？' } %>
+	  </p>
+	  <% end %>
+	  <br>
+	  <hr>
+	</li>
+	<% end %>
+      </div>
+  </ul>
+    
+  </div>
+  
+</div>

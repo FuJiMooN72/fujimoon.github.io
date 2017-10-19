@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8">
+  <title>Workspace</title>
+  <link rel="stylesheet" href="application.css" type="text/css" media="screen">
+  <%= csrf_meta_tags %>
+  
+  <%= stylesheet_link_tag 'application',
+      media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application',
+      'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  
+  <!-- <p class="notice"><%= notice %></p> -->
+  <!-- <p class="alert"><%= alert %></p> -->
+  
+  <header> 
+    
+    <p id="logo"><a href="/">RailsCamp<span>Blog</span></a></p>
+    
+    <nav>
+      <ul>
+        <li><%= link_to 'トップ', root_path, class: '' %></li>
+	<% if user_signed_in? %>
+	<li><%= link_to '新規投稿', new_post_path, class: '' %></li>
+	<li>
+	  <%= link_to "ログアウト", destroy_user_session_path,
+	      method: :delete, :class => '' %></li>
+	<% else %>
+	<li><%= link_to "ユーザー登録", new_user_registration_path,
+		:class => '' %> </li>
+	<li> <%= link_to "ログイン", new_user_session_path,
+		 :class => '' %></li>
+	<% end %>
+	<div class="clear"></div>
+      </ul>
+    </nav>
+    <div class="clear"></div>
+  </header>
+ 
+  <%= yield %>
+  
+    <div id="sidebar">
+      <h2>title</h2>
+      <ul>
+                <li>
+                    <a href="/articles/61">
+                        test
+                        <span>（106PV）</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/articles/55">
+                        記事１
+                        <span>（103PV）</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/articles/70">
+                        test1
+                        <span>（8PV）</span>
+                    </a>
+                </li>
+        </ul>
+   
+    </div>
+
+    <footer>
+    <div id="footer_inner">
+      <p>Copyright RailsCamp 2015 All Rights Reserved</p>
+    </div>
+  </footer>  
+  
+</body> 
+</html>

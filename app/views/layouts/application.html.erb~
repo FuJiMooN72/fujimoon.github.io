@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head lang="ja">
+      <title>Workspace</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="application.css" type="text/css" media="screen">
+      <%= csrf_meta_tags %>
+      
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    
+    <body>
+      <!-- login deviseのためのもの  -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      <header> <!--href 要書き換え -->
+	
+	<!-- <p id ="logo"> -->
+	<!-- 	<%= link_to 'RailsCamp<span>Blog</span>', root_path %> -->
+	<!-- </p> -->
+	
+	<p id="logo"><a href="/">RailsCamp<span>Blog</span></a></p>
+	
+	<nav>
+          <ul>
+            <li><%= link_to 'トップ', root_path, class: '' %></li>
+	    <% if user_signed_in? %>
+	    <!-- Logged in as <strong><%= current_user.email %></strong> -->
+	    <li><%= link_to '新規投稿', new_post_path, class: '' %></li>
+	    <li>
+	      <!-- ><%= link_to "Settings", edit_user_registration_path, :class => '' %>  -->
+	      <%= link_to "ログアウト", destroy_user_session_path,method: :delete, :class => '' %></li>
+	  <% else %>
+	    <li><%= link_to "ユーザー登録", new_user_registration_path, :class => '' %> </li>
+	    <li> <%= link_to "ログイン", new_user_session_path, :class => '' %></li>
+	    <% end %>
+	    <!--  <li><%= link_to 'ログイン', new_user_registration_path, class: '' %></li> <!--  -->
+	    <div class="clear"></div>
+	  </ul>
+	</nav>
+      <div class="clear"></div>
+      </header>
+      
+      
+      
+      <%= yield %>
+      
+      
+      <footer>
+	<div id="footer_inner">
+	  <p>Copyright RailsCamp 2015 All Rights Reserved</p>
+	</div>
+      </footer>  
+  
+</body> 
+</html>
